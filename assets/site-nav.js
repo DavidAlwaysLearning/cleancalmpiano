@@ -1,7 +1,8 @@
 /* Site menu. Add a destination by appending one entry.
    The open menu lists every other destination.
    Subscribe confirmation and thank-you pages are not destinations.
-   Scores is the shared library on Lackadaisical Perfection. */
+   Scores is the shared library on Lackadaisical Perfection.
+   Albums lists every album, newest first. This album is "You're here". */
 (function () {
   var pages = [
     { href: "/", label: "Album" },
@@ -76,6 +77,85 @@
   menu.setAttribute("aria-label", "Pages");
   menu.hidden = true;
   menu.appendChild(list);
+
+  var albums = [
+    { title: "Lackadaisical Perfection", year: 2027, host: "lackadaisicalperfection.com", slug: "lackadaisical-perfection" },
+    { title: "Piano Reveries and Phantasies", year: 2015, host: "pianoreveries.com", slug: "piano-reveries" },
+    { title: "Smitten with the Muses", year: 2014, host: "smittenwiththemuses.com", slug: "smitten-with-the-muses" },
+    { title: "Where In The World Is Diane", year: 2012, host: "whereintheworldisdiane.com", slug: "where-in-the-world-is-diane" },
+    { title: "Clean Calm Piano", year: 2010, host: "cleancalmpiano.com", slug: "clean-calm-piano" },
+    { title: "Tantalizing Proof", year: 2009, host: "tantalizingproof.com", slug: "tantalizing-proof" },
+    { title: "Piano In Colors", year: 2007, host: "pianoincolors.com", slug: "piano-in-colors" },
+    { title: "Melodic Subtlety \u2013 Solo Piano", year: 2006, host: "melodicsubtlety.com", slug: "melodic-subtlety" }
+  ];
+  albums.sort(function (a, b) { return b.year - a.year; });
+
+  function currentHost() {
+    var host = (location.hostname || "").replace(/^www\./, "").toLowerCase();
+    if (!host || host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") {
+      return "cleancalmpiano.com";
+    }
+    return host;
+  }
+
+  var hereHost = currentHost();
+
+  function coverImg(album) {
+    var image = document.createElement("img");
+    var one = "/assets/albums/" + album.slug + ".jpg";
+    var two = "/assets/albums/" + album.slug + "@2x.jpg";
+    image.src = one;
+    image.srcset = one + " 1x, " + two + " 2x";
+    image.width = 48;
+    image.height = 48;
+    image.alt = "";
+    image.decoding = "async";
+    return image;
+  }
+
+  var albumsHeading = document.createElement("h2");
+  albumsHeading.id = "menu-albums-label";
+  albumsHeading.textContent = "Albums";
+
+  var albumsList = document.createElement("ul");
+  albumsList.setAttribute("role", "list");
+
+  albums.forEach(function (album) {
+    var item = document.createElement("li");
+    var here = album.host === hereHost;
+    var row = document.createElement(here ? "div" : "a");
+    if (here) {
+      row.className = "is-here";
+      row.setAttribute("aria-current", "page");
+    } else {
+      row.href = "https://" + album.host + "/";
+      row.target = "_blank";
+      row.rel = "noopener";
+    }
+    row.appendChild(coverImg(album));
+    var copy = document.createElement("span");
+    copy.className = "album-copy";
+    var title = document.createElement("span");
+    title.className = "album-title";
+    title.textContent = album.title;
+    copy.appendChild(title);
+    if (here) {
+      var note = document.createElement("span");
+      note.className = "album-here";
+      note.textContent = "You're here";
+      copy.appendChild(note);
+    }
+    row.appendChild(copy);
+    item.appendChild(row);
+    albumsList.appendChild(item);
+  });
+
+  var albumsSection = document.createElement("section");
+  albumsSection.className = "menu-albums";
+  albumsSection.setAttribute("aria-labelledby", "menu-albums-label");
+  albumsSection.appendChild(albumsHeading);
+  albumsSection.appendChild(albumsList);
+  menu.appendChild(albumsSection);
 
   document.body.appendChild(button);
   document.body.appendChild(menu);
