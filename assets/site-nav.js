@@ -55,7 +55,8 @@
 (function () {
   var pages = [
     { href: "/", label: "Album" },
-    { href: "https://lackadaisicalperfection.com/scores/", label: "Scores", blank: true }
+    { href: "https://lackadaisicalperfection.com/scores/", label: "Scores", blank: true },
+    { href: "https://lackadaisicalperfection.com/about/", label: "About", blank: true }
   ];
 
   function normalize(path) {
@@ -157,7 +158,7 @@
     image.srcset = one + " 1x, " + two + " 2x";
     image.width = 48;
     image.height = 48;
-    image.alt = "";
+    image.alt = album.title.split(" \u2013 ")[0].split(" – ")[0] + " album cover";
     image.decoding = "async";
     return image;
   }
