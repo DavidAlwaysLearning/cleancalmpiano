@@ -75,48 +75,19 @@
   }, true);
 })();
 
-/* Site menu. Add a destination by appending one entry.
-   The open menu lists every other destination.
-   Subscribe confirmation and thank-you pages are not destinations.
-   Scores is the shared library on Lackadaisical Perfection.
-   Albums lists every album, newest first. This album is "You're here". */
+/* Site menu. Same destinations on every page: About, Scores, Subscribe, then the eight albums.
+   On this album site those three open the canonical Lackadaisical Perfection pages in a new tab.
+   The only page-specific mark is "You're here" on this album. */
 (function () {
   var pages = [
-    { href: "/", label: "Album" },
+    { href: "https://lackadaisicalperfection.com/about/", label: "About", blank: true },
     { href: "https://lackadaisicalperfection.com/scores/", label: "Scores", blank: true },
-    { href: "https://lackadaisicalperfection.com/about/", label: "About", blank: true }
+    { href: "https://lackadaisicalperfection.com/subscribe/", label: "Subscribe", blank: true }
   ];
-
-  function normalize(path) {
-    var p = path || "/";
-    var base = location.origin && location.origin !== "null"
-      ? location.origin
-      : "https://cleancalmpiano.com";
-    try {
-      p = new URL(p, base).pathname;
-    } catch (err) {
-      p = "/";
-    }
-    if (p === "/index.html" || p.slice(-11) === "/index.html") {
-      p = p.slice(0, -10);
-    }
-    if (p.charAt(p.length - 1) !== "/") p += "/";
-    return p;
-  }
-
-  function excluded(path) {
-    return /\/subscribe\/confirmed\/|\/thank-you\/|\/thanks\/|\/confirmation\//.test(path);
-  }
 
   function reducedMotion() {
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
-
-  var here = normalize(location.pathname);
-  var links = pages.filter(function (page) {
-    var path = normalize(page.href);
-    return path !== here && !excluded(path);
-  });
 
   var button = document.createElement("button");
   button.type = "button";
@@ -136,7 +107,7 @@
 
   var list = document.createElement("ul");
   list.setAttribute("role", "list");
-  links.forEach(function (page) {
+  pages.forEach(function (page) {
     var item = document.createElement("li");
     var link = document.createElement("a");
     link.href = page.href;
@@ -164,7 +135,7 @@
     { title: "Clean Calm Piano", year: 2010, host: "cleancalmpiano.com", slug: "clean-calm-piano" },
     { title: "Tantalizing Proof", year: 2009, host: "tantalizingproof.com", slug: "tantalizing-proof" },
     { title: "Piano In Colors", year: 2007, host: "pianoincolors.com", slug: "piano-in-colors" },
-    { title: "Melodic Subtlety \u2013 Solo Piano", year: 2006, host: "melodicsubtlety.com", slug: "melodic-subtlety" }
+    { title: "Melodic Subtlety", year: 2006, host: "melodicsubtlety.com", slug: "melodic-subtlety" }
   ];
   albums.sort(function (a, b) { return b.year - a.year; });
 
