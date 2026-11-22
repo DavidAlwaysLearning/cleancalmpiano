@@ -9,12 +9,12 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>Piano Pieces for Focus at Work | Clean Calm Piano</title>
+<title>Clean Calm Piano · David Rivera · Piano for Focus at Work</title>
 <meta name="description" content="Piano pieces for focus at work, studying, and quiet chores. Fourteen piano pieces, including Stormless Sea. Stream the album and stay on task.">
 <link rel="canonical" href="https://cleancalmpiano.com/">
 <meta property="og:type" content="music.album">
 <meta property="og:site_name" content="David Rivera">
-<meta property="og:title" content="Piano Pieces for Focus at Work | Clean Calm Piano">
+<meta property="og:title" content="Clean Calm Piano · David Rivera · Piano for Focus at Work">
 <meta property="og:description" content="Piano pieces for focus at work, studying, and quiet chores. Fourteen piano pieces including Stormless Sea. Stream the album.">
 <meta property="og:url" content="https://cleancalmpiano.com/">
 <meta property="og:image" content="https://cleancalmpiano.com/assets/clean-calm-piano-cover.jpg">
@@ -23,7 +23,7 @@
 <meta property="og:image:alt" content="Cover of Clean Calm Piano by David Rivera: gold title over dark blue piano keys">
 <meta property="music:musician" content="https://open.spotify.com/artist/5qoC4NXvjfV3cylbXALzV3">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Piano Pieces for Focus at Work | Clean Calm Piano">
+<meta name="twitter:title" content="Clean Calm Piano · David Rivera · Piano for Focus at Work">
 <meta name="twitter:description" content="Piano pieces for focus at work, studying, and quiet chores. Fourteen piano pieces including Stormless Sea. Stream the album.">
 <meta name="twitter:image" content="https://cleancalmpiano.com/assets/clean-calm-piano-cover.jpg">
 <meta name="twitter:image:alt" content="Cover of Clean Calm Piano by David Rivera: gold title over dark blue piano keys">
@@ -92,9 +92,11 @@
       "track": [
         {
           "@type": "MusicRecording",
+          "@id": "https://cleancalmpiano.com/stormless-sea/#recording",
           "position": 1,
           "name": "Stormless Sea",
-          "duration": "PT2M42S"
+          "duration": "PT2M42S",
+          "url": "https://cleancalmpiano.com/stormless-sea/"
         },
         {
           "@type": "MusicRecording",
@@ -152,9 +154,11 @@
         },
         {
           "@type": "MusicRecording",
+          "@id": "https://cleancalmpiano.com/five-minutes-of-calm/#recording",
           "position": 11,
           "name": "Five Minutes of Calm",
-          "duration": "PT5M17S"
+          "duration": "PT5M17S",
+          "url": "https://cleancalmpiano.com/five-minutes-of-calm/"
         },
         {
           "@type": "MusicRecording",
@@ -164,15 +168,19 @@
         },
         {
           "@type": "MusicRecording",
+          "@id": "https://cleancalmpiano.com/misty-breeze/#recording",
           "position": 13,
           "name": "Misty Breeze",
-          "duration": "PT4M36S"
+          "duration": "PT4M36S",
+          "url": "https://cleancalmpiano.com/misty-breeze/"
         },
         {
           "@type": "MusicRecording",
+          "@id": "https://cleancalmpiano.com/the-trembling-question/#recording",
           "position": 14,
           "name": "The Trembling Question",
-          "duration": "PT3M38S"
+          "duration": "PT3M38S",
+          "url": "https://cleancalmpiano.com/the-trembling-question/"
         }
       ],
       "publisher": {
@@ -244,6 +252,9 @@
     display: flex; justify-content: space-between; gap: 16px;
     padding: 6px 0; border-bottom: 1px solid var(--line);
   }
+  .tracks a { color: var(--glow); text-decoration: underline; text-underline-offset: 3px; }
+  .tracks a:hover { text-decoration: underline; }
+  .tracks a:focus-visible { outline: 2px solid var(--glow); outline-offset: 3px; }
   .label {
     text-align: center; letter-spacing: 0.2em; text-transform: uppercase;
     font-size: 0.72rem; color: var(--mute); margin: 0 0 16px;
@@ -309,7 +320,7 @@ src="https://www.facebook.com/tr?id=257777058255900&ev=PageView&noscript=1"
 
   <p class="label">The pieces</p>
   <ol class="tracks">
-    <li><span>Stormless Sea</span><span>2:42</span></li>
+    <li><span><a href="/stormless-sea/">Stormless Sea</a></span><span>2:42</span></li>
     <li><span>Ocean Road</span><span>3:03</span></li>
     <li><span>Window View</span><span>4:01</span></li>
     <li><span>Introspection</span><span>6:34</span></li>
@@ -319,10 +330,10 @@ src="https://www.facebook.com/tr?id=257777058255900&ev=PageView&noscript=1"
     <li><span>Smiling Moment</span><span>1:49</span></li>
     <li><span>A Little Dance</span><span>3:39</span></li>
     <li><span>One Distant Piano</span><span>2:39</span></li>
-    <li><span>Five Minutes of Calm</span><span>5:17</span></li>
+    <li><span><a href="/five-minutes-of-calm/">Five Minutes of Calm</a></span><span>5:17</span></li>
     <li><span>Innocence Regained</span><span>2:54</span></li>
-    <li><span>Misty Breeze</span><span>4:36</span></li>
-    <li><span>The Trembling Question</span><span>3:38</span></li>
+    <li><span><a href="/misty-breeze/">Misty Breeze</a></span><span>4:36</span></li>
+    <li><span><a href="/the-trembling-question/">The Trembling Question</a></span><span>3:38</span></li>
   </ol>
   <hr class="rule">
   <p class="label">The other albums</p>

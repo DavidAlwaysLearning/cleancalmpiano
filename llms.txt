@@ -6,7 +6,7 @@
 - [Clean Calm Piano](https://cleancalmpiano.com/): the album page, with tracks and listen links.
 
 ## Tracks
-1. Stormless Sea
+1. [Stormless Sea](https://cleancalmpiano.com/stormless-sea/)
 2. Ocean Road
 3. Window View
 4. Introspection
@@ -16,10 +16,10 @@
 8. Smiling Moment
 9. A Little Dance
 10. One Distant Piano
-11. Five Minutes of Calm
+11. [Five Minutes of Calm](https://cleancalmpiano.com/five-minutes-of-calm/)
 12. Innocence Regained
-13. Misty Breeze
-14. The Trembling Question
+13. [Misty Breeze](https://cleancalmpiano.com/misty-breeze/)
+14. [The Trembling Question](https://cleancalmpiano.com/the-trembling-question/)
 
 ## Listen
 - [Clean Calm Piano on Apple Music](https://music.apple.com/us/album/clean-calm-piano/409062605)
